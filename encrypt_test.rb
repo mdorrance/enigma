@@ -12,7 +12,7 @@ class EncryptTest < Minitest::Test
   def test_for_encrypted_message_file
     encrypt = Encrypt.new("message.txt", "encrypted.txt")
 
-    assert_equal "encrypted.txt", encrypt.encrypted_file
+    assert_equal "encrypted.txt", encrypt.encrypted_file_name
   end
 
   def test_read_message_file

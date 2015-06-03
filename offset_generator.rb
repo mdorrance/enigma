@@ -6,7 +6,7 @@ class OffsetGenerator
     Time.now.strftime('%d%m%y')
 
   end
-  # Square the numeric form (412699225) and find the last four digits (9225)
+  # Square the numeric form (937278225) and find the last four digits (9225)
 
   def square_date
     (date_format.to_i)**2

@@ -11,22 +11,24 @@
 
 class Encrypt
 
-  def initialize(message_file, encrypted_file)
+  attr_reader :message_file
+  attr_accessor :encrypted_file_name
+
+  def initialize(message_file, encrypted_file_name)
     @message_file = message_file
-    @encrypted_file = encrypted_file
+    @encrypted_file_name = encrypted_file_name
     @message = ''
   end
 
   def message_file
     @message_file
   end
-  def encrypted_file
-    @encrypted_file
+  def encrypted_file_name
+    @encrypted_file_name
   end
   def message
     @message = File.open(@message_file, "r")
     @message.read
-
   end
   def encrypted_file?
 

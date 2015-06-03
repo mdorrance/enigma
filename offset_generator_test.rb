@@ -10,12 +10,12 @@ class OffsetGeneratorTest < Minitest::Test
 
   def test_encrypt_date
     offset_generator = OffsetGenerator.new
-    assert_equal "020615", offset_generator.date_format
+    assert_equal "030615", offset_generator.date_format
   end
 
   def test_square_date
     offset_generator = OffsetGenerator.new
-    assert_equal 424978225, offset_generator.square_date
+    assert_equal 937278225, offset_generator.square_date
   end
 
   def test_date_key
