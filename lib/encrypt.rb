@@ -18,10 +18,14 @@ class Encrypt
   attr_reader :message_file, :key, :date
   attr_accessor :encrypted_file_name
 
-  def initialize(message_file, encrypted_file_name)
+  def initialize(message_file, encrypted_file_name, key)
     @message_file = message_file
     @encrypted_file_name = encrypted_file_name
-    @key = "01011"
+    if key.nil?
+      @key = (0..4).collect { rand(0..9) }.join
+    else
+      @key = key
+    end
     # (0..4).collect { rand(0..9) }.join
        #KeyGenerator.new.generate_key
     @date = Time.now.strftime('%d%m%y')
@@ -48,7 +52,7 @@ class Encrypt
 end
 
 if __FILE__ == $0
-  encrypt = Encrypt.new(ARGV[0], ARGV[1])
+  encrypt = Encrypt.new(ARGV[0], ARGV[1], ARGV[2])
   encrypt.file_reader
   puts "Created #{ARGV[1]} with this key #{encrypt.key} and the date #{encrypt.date}"
 end

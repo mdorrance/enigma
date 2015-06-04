@@ -8,7 +8,7 @@ class EncryptTest < Minitest::Test
       f.write("hello world")
     end
 
-    encrypt = Encrypt.new("test-message.txt", "encrypted.txt")
+    encrypt = Encrypt.new("test-message.txt", "encrypted.txt", "01011")
 
     encrypt.file_reader
 
