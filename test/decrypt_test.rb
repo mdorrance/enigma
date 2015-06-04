@@ -2,7 +2,7 @@
 #User needs to enter encrypted.txt, created a decrypted.txt, key, formatted date
 #out put require 'minitest/autorun'
 require 'minitest/autorun'
-require_relative 'decrypt'
+require_relative '../lib/decrypt'
 
 class DecryptTest < Minitest::Test
 

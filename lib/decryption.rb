@@ -12,14 +12,12 @@ class Decryption
     @offset_generator = OffsetGenerator.new(date)
     @key_generator = key_generator
     @character_map = CharacterMap.new
-
-    @encrypter = Encryption.new(....)
   end
   # Four characters are encrypted at a time.
 
   # The first character is rotated forward by the "A" rotation plus the "A offset"
   def total_rotate_a
-    -1 * (@encypter.total_rotate_a)
+    -1 * (@offset_generator.offset_a + @key_generator.chars.values_at(0,1).join.to_i)
   end
 
   # The second character is rotated forward by the "B" rotation plus the "B offset"

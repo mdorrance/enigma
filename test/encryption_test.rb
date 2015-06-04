@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'encryption'
+require_relative '../lib/encryption'
 
 class EncryptionTest < Minitest::Test
 

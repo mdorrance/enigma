@@ -8,9 +8,9 @@
 #
 # $ ruby ./lib/encrypt.rb message.txt encrypted.txt
 # Created 'encrypted.txt' with the key 82648 and date 030415
-require_relative 'encryption'
-require_relative 'offset_generator'
-require_relative 'key_generator'
+require_relative '../lib/encryption'
+require_relative '../lib/offset_generator'
+require_relative '../lib/key_generator'
 require 'pry'
 
 class Encrypt

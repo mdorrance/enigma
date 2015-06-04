@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'offset_generator'
+require_relative '../lib/offset_generator'
 
 class OffsetGeneratorTest < Minitest::Test
 

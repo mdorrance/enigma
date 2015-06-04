@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'character_map'
+require_relative '../lib/character_map'
 
 class CharacterMapTest < Minitest::Test
   def test_for_new_character_map

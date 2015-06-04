@@ -1,6 +1,6 @@
 #Use the provided encrypted.txt to decrypt with provided key and date
 #create decryptedrequire 'minitest/autorun'
-require_relative 'decryption'
+require_relative '../lib/decryption'
 
 class DecryptionTest < Minitest::Test
 
@@ -30,16 +30,16 @@ class DecryptionTest < Minitest::Test
   end
   def test_slice_message_into_4_letter_slice
     decryption = Decryption.new("qqo1xjz40xg", "01011", "040615")
-    assert_equal [["h", "e", "l", "l"], ["o", " ", "w", "o"], ["r", "l", "d"]], decryption.parsed
+    assert_equal [["q", "q", "o", "1"], ["x", "j", "z", "4"], ["0", "x", "g"]], decryption.parsed
 
   end
   def test_rotate_each_letter_in_order_of_rotation_per_slice
     decryption = Decryption.new("qqo1xjz40xg", "01011", "040615")
-    assert_equal [["q", "q", "o", "1"], ["x", "j", "z", "4"], ["0", "x", "g"]], decryption.rotate
+    assert_equal [["h", "e", "l", "l"], ["o", " ", "w", "o"], ["r", "l", "d"]], decryption.rotate
 
   end
   def test_flatten_the_rotate_array_of_arrays
     decryption = Decryption.new("qqo1xjz40xg", "01011", "040615")
-    assert_equal "qqo1xjz40xg", decryption.decrypted_message
+    assert_equal "hello world", decryption.decrypted_message
   end
 end
