@@ -37,6 +37,10 @@ class Encrypt
     write_file = File.open(@encrypted_file_name, "w")
     write_file.write(encrypted_message)
     write_file.close
+
+    # File.open(@encrypted_file_name, "w") do |f|
+    #   f.write(encrypted_message)
+    # end
   end
   def encrypted_file?
 
