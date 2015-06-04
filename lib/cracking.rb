@@ -58,7 +58,9 @@ class Cracking
     end
   end
   def cracked_message
-    rotate.flatten.join
+    until (rotate.flatten.join).include?("..end..")
+      @key_generator += 1
+    end
   end
 
 end

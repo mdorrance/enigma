@@ -13,16 +13,16 @@ require_relative '../lib/offset_generator'
 require_relative '../lib/key_generator'
 require 'pry'
 
-class Encrypt
+class Cracked
 
   attr_reader :message_file, :key, :date
-  attr_accessor :encrypted_file_name
+  attr_accessor :cracked_file_name
 
   def initialize(message_file, cracked_file_name, key)
     @message_file = message_file
     @cracked_file_name = cracked_file_name
     if key.nil?
-      @key = (0..4).collect { rand(0..9) }.join
+      @key = "00000"
     else
       @key = key
     end
@@ -34,7 +34,7 @@ class Encrypt
   def file_reader
     message_file = File.open("#{@message_file}", "r").read
 
-    encrypted_message = Cracking.new(message_file, @key, @date).encrypted_message
+    cracked_message = Cracking.new(message_file, @key, @date).cracked_message
     write_encrypted_file(cracked_message)
   end
   def write_encrypted_file(cracked_message)
