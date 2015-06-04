@@ -1,13 +1,4 @@
-# when the user opens the file they will need to pass 2 arguments
-# message.txt and the encrypted.text
-# check if the file is not already present.
-# Use the encrypt file date/time stamp to extract the date
-# Date needs to be in DDMMYY format
-# Generate the random 5 number key
-# Output to screen the string -
-#
-# $ ruby ./lib/encrypt.rb message.txt encrypted.txt
-# Created 'encrypted.txt' with the key 82648 and date 030415
+
 require_relative 'decryption'
 require_relative 'offset_generator'
 require_relative 'key_generator'
@@ -16,7 +7,7 @@ require 'pry'
 class Decrypt
 
   attr_reader :message_file, :key, :date
-  attr_accessor :encrypted_file_name
+  attr_accessor :decrypted_file_name
 
   def initialize(message_file, decrypted_file_name, key, date)
     @encrypted_file = message_file
@@ -33,14 +24,13 @@ class Decrypt
     decrypted_message = Decryption.new(message_file, @key, @date).decrypted_message
     write_decrypted_file(decrypted_message)
   end
+
   def write_decrypted_file(decrypted_message)
     write_file = File.open(@decrypted_file_name, "w")
     write_file.write(decrypted_message)
     write_file.close
   end
-  def encrypted_file?
 
-  end
 end
 
 if __FILE__ == $0

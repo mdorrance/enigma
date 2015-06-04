@@ -5,6 +5,7 @@ require_relative 'key_generator'
 require_relative 'character_map'
 
 class Cracking
+
   attr_accessor :offset_generator, :key_generator
 
   def initialize(message, key_generator, date)
@@ -35,9 +36,11 @@ class Cracking
   def total_rotate_d
     @offset_generator.offset_d + @key_generator.chars.values_at(3,4).join.to_i
   end
+
   def message
     @message
   end
+
   def parsed
     @message.chars.each_slice(4).to_a { |letter| letter }
   end
@@ -57,6 +60,7 @@ class Cracking
       end
     end
   end
+
   def cracked_message
     until (rotate.flatten.join).include?("..end..")
       @key_generator += 1

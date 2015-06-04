@@ -5,9 +5,9 @@
 # Date needs to be in DDMMYY format
 # Generate the random 5 number key
 # Output to screen the string -
-#
 # $ ruby ./lib/encrypt.rb message.txt encrypted.txt
 # Created 'encrypted.txt' with the key 82648 and date 030415
+
 require_relative '../lib/encryption'
 require_relative '../lib/offset_generator'
 require_relative '../lib/key_generator'
@@ -37,6 +37,7 @@ class Encrypt
     encrypted_message = Encryption.new(message_file, @key, @date).encrypted_message
     write_encrypted_file(encrypted_message)
   end
+
   def write_encrypted_file(encrypted_message)
     write_file = File.open(@encrypted_file_name, "w")
     write_file.write(encrypted_message)
@@ -46,9 +47,7 @@ class Encrypt
     #   f.write(encrypted_message)
     # end
   end
-  def encrypted_file?
 
-  end
 end
 
 if __FILE__ == $0
@@ -56,5 +55,3 @@ if __FILE__ == $0
   encrypt.file_reader
   puts "Created #{ARGV[1]} with this key #{encrypt.key} and the date #{encrypt.date}"
 end
-# encrypt = Encrypt.new("message.txt", "encrypted4.txt")
-# encrypt.file_reader

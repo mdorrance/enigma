@@ -37,6 +37,7 @@ class Cracked
     cracked_message = Cracking.new(message_file, @key, @date).cracked_message
     write_encrypted_file(cracked_message)
   end
+
   def write_encrypted_file(cracked_message)
     write_file = File.open(@cracked_file_name, "w")
     write_file.write(cracked_message)
@@ -46,9 +47,7 @@ class Cracked
     #   f.write(encrypted_message)
     # end
   end
-  def encrypted_file?
 
-  end
 end
 
 if __FILE__ == $0
@@ -56,5 +55,3 @@ if __FILE__ == $0
   encrypt.file_reader
   puts "Created #{ARGV[1]} with this key #{encrypt.key} and the date #{encrypt.date}"
 end
-# encrypt = Encrypt.new("message.txt", "encrypted4.txt")
-# encrypt.file_reader
