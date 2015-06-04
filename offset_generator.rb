@@ -1,15 +1,15 @@
 require 'date'
-class OffsetGenerator
-  # The date of message transmission is also factored into the encryption
-  # Consider the date in the format DDMMYY, like 020315
-  def date_format
-    Time.now.strftime('%d%m%y')
+require 'pry'
+require_relative 'encryption'
 
+class OffsetGenerator
+
+  def initialize(date)
+    @date = date
   end
-  # Square the numeric form (937278225) and find the last four digits (9225)
 
   def square_date
-    (date_format.to_i)**2
+    (@date.to_i)**2
   end
   def date_key
     square_date.to_s.slice(-4..-1)
@@ -34,8 +34,6 @@ class OffsetGenerator
 
 end
 
-date = OffsetGenerator.new
-puts date.date_format.class
-puts date.square_date
+
 
 

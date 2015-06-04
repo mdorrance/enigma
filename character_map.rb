@@ -4,5 +4,3 @@ class CharacterMap
   end
 end
 
-char = CharacterMap.new
-print char.character_map.size
